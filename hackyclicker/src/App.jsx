@@ -37,13 +37,15 @@ function App() {
         <button onClick={handleBearClick}>
           You have {points} Coder Points!
         </button>
-        {upgrades.map((upgrade) => (
+        
+      </div>
+        <div id = "right">
+          {upgrades.map((upgrade) => (
           <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
             {upgrade.name}
           </button>
         ))}
-      </div>
-        <div id = "right"></div>
+        </div>
     </div>
     </div>
     </>
