@@ -64,7 +64,8 @@ h2 {
 
 #bear {
   -webkit-user-drag: none;
-  animation: SPIN 1s linear infinite;
+  animation: SPIN 100s linear infinite;
+  background: transparent;
 }
 
 .invert {
