@@ -16,16 +16,21 @@ function App() {
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
 
 
+  let bear = document.createElement("img");
+  bear.src = "/a.webp";
+  bear.id = "bear";
+
   return (
     <>
     <div id = "yessy">
       <h1>HackyClicker</h1>
+      <h2>You have {points} Coder Points!</h2>
       <div id = "container">
         <div id = "left">
         </div>
       <div id ="middle">
-        <button onClick={() => appLogic.clickBear(setPoints)}>
-          You have {points} Coder Points!
+        <button id='bearButton' onClick={() => appLogic.clickBear(setPoints)}>
+          <bear></bear>
         </button>
       </div>
         <div id = "right">
