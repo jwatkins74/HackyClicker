@@ -1,9 +1,11 @@
 import Upgrade from './Upgrade.jsx';
+import Tower from './Tower.jsx';
 class Logic {
     constructor() {
         this.points = 0;
         this.multiplier = 1;
         this.upgrades = [new Upgrade("Upgrade1", 1, 20, 10), new Upgrade("Upgrade2", 1, 200, 100),];
+        this.towers = [new Tower("Tower1", 1, 20, 0), new Tower("Tower2", 5, 100, 10)];
     }
 
     clickBear(setPoints) {
@@ -29,6 +31,32 @@ class Logic {
             return true;
         }
         return false;
+    }
+
+    addTower(towerName, setPoints, setTowers) {
+        const idx = this.towers.findIndex(t => t.name === towerName);
+        if (idx !== -1) {
+            if (this.points < this.towers[idx].getCost()) {
+                return false;
+            }
+            const currTower = this.towers[idx];
+            if (currTower.getAmount() === 0) {
+                this.applyTower(currTower, setPoints, setTowers);
+            }
+            this.points -= currTower.getCost();
+            currTower.buyTower();
+            setPoints(this.getPoints());
+            setTowers([...this.towers]);
+            return true;
+        }
+        return false;
+    }
+    applyTower(tower, setPoints, setTowers) {
+        setInterval(() => {
+            this.points += tower.getDPS();
+            setPoints(this.getPoints());
+            setTowers([...this.towers]);
+        }, 1000);
     }
 
     getPoints() {

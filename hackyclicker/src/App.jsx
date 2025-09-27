@@ -14,6 +14,7 @@ function App() {
   // React state to trigger re-render on points change
   const [points, setPoints] = useState(appLogic.getPoints());
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
+  const [towers, setTowers] = useState(appLogic.towers);
 
 
   let bear = document.createElement("img");
@@ -27,6 +28,13 @@ function App() {
       <h2>You have {points} Coder Points!</h2>
       <div id = "container">
         <div id = "left">
+          {towers
+              .filter((tower) => points >= (tower.getRequirement()))
+              .map((tower) => (
+                <button key={tower.name} onClick={() => appLogic.addTower(tower.name, setPoints, setTowers)}>
+                  {tower.name}, {tower.getCost()}, {tower.getAmount()}
+                </button>
+              ))}
         </div>
       <div id ="middle">
         <button id='bearButton' onClick={() => appLogic.clickBear(setPoints)}>
