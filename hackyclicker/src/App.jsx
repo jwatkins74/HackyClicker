@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -31,23 +30,29 @@ function App() {
 
   return (
     <>
+    <div id = "yessy">
       <h1>HackyClicker</h1>
       <div className="card">
-        <button onClick={handleBearClick}>
-          You have {points} Coder Points!
-        </button>
-        {upgrades.map((upgrade) => (
-          <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
-            {upgrade.name}
-          </button>
-        ))}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+      <div id = "container">
+        <div id = "left">
+        </div>
+        <div id = "middle">
+          <button onClick={handleBearClick}>
+            You have {points} Coder Points!
+          </button>
+          {upgrades.map((upgrade) => (
+            <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
+              {upgrade.name}
+            </button>
+          ))}
+        </div>
+        <div id = "right"></div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </div>
+    </div>
     </>
   );
 }
