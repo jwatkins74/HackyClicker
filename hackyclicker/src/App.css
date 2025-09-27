@@ -45,6 +45,6 @@ h2 {
   -webkit-user-drag: none;
 }
 
-#bear:click {
+.invert {
   filter: invert(1);
 }

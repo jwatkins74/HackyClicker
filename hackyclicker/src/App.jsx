@@ -15,10 +15,7 @@ function App() {
   const [points, setPoints] = useState(appLogic.getPoints());
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
 
-
-  let bear = document.createElement("img");
-  bear.src = "/a.webp";
-  bear.id = "bear";
+  const [flag1, setFlag1] = useState(false);
 
   return (
     <>
@@ -29,8 +26,11 @@ function App() {
         <div id = "left">
         </div>
       <div id ="middle">
-        <button id='bearButton' onClick={() => appLogic.clickBear(setPoints)}>
-          <img id='bear' draggable = "false" src = "/a.webp"></img>
+        <button id='bearButton' onClick={() => {appLogic.clickBear(setPoints)
+        setFlag1(true)
+        setTimeout(() => {setFlag1(false)}, 200)
+        }}>
+          <img id='bear' draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
         </button>
       </div>
         <div id = "right">
