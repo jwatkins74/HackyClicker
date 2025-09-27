@@ -17,12 +17,19 @@ function App() {
   const [towers, setTowers] = useState(appLogic.progression.towers);
 
   const [flag1, setFlag1] = useState(false);
+  const [speed, setSpeed] = useState(100);
 
   return (
     <>
     <div id = "yessy">
-      <h1>HackyClicker</h1>
+      <div id ="head">
+        <div>
+          <h1>HackyClicker</h1>
       <h2>You have {points} Coder Points!</h2>
+        </div>
+        
+      </div>
+      
       <div id = "container">
         <div id = "left">
           {towers
@@ -38,7 +45,7 @@ function App() {
         setFlag1(true)
         setTimeout(() => {setFlag1(false)}, 200)
         }}>
-          <img id='bear' draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
+          <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
         </button>
       </div>
         <div id = "right">
