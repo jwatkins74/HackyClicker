@@ -1,4 +1,3 @@
-
 @keyframes SPIN {
   0% {
     transform: rotate(0deg);
@@ -34,7 +33,8 @@
   flex-wrap: wrap;
 }
 
-#right, #left {
+#right,
+#left {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -49,6 +49,10 @@
 
 button {
   background-color: rebeccapurple;
+}
+
+#bearButton {
+  background-color: saddlebrown;
 }
 
 #root {
