@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -9,17 +7,17 @@ function App() {
   return (
     <>
       <h1>HackyClicker</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div id = "container">
+        <div id = "left">
+        </div>
+        <div id = "middle">
+          <button id ="clickButton" onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+        </div>
+        <div id = "right"></div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
