@@ -16,10 +16,6 @@ function App() {
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
 
 
-  let bear = document.createElement("img");
-  bear.src = "/a.webp";
-  bear.id = "bear";
-
   return (
     <>
     <div id = "yessy">
@@ -30,7 +26,7 @@ function App() {
         </div>
       <div id ="middle">
         <button id='bearButton' onClick={() => appLogic.clickBear(setPoints)}>
-          <bear></bear>
+          <img id='bear' draggable = "false" src = "/a.webp"></img>
         </button>
       </div>
         <div id = "right">
