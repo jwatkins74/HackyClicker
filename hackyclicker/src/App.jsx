@@ -26,10 +26,6 @@ function App() {
     }
   }
 
-  let bear = document.createElement("img");
-  bear.src = "/a.webp";
-  bear.id = "bear";
-
   return (
     <>
     <div id = "yessy">
@@ -40,7 +36,7 @@ function App() {
         </div>
       <div id ="middle">
         <button id='bearButton' onClick={handleBearClick}>
-          <bear></bear>
+          <img id='bear' draggable = "false" src = "/a.webp"></img>
         </button>
         
       </div>
@@ -48,7 +44,7 @@ function App() {
           {upgrades.map((upgrade) => (
           <button key={upgrade.name} onClick={() =>{
             handleUpgradeClick(upgrade.name);
-            bear.add
+            
           } }>
             {upgrade.name}
           </button>
