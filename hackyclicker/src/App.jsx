@@ -15,16 +15,6 @@ function App() {
   const [points, setPoints] = useState(appLogic.getPoints());
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
 
-  const handleBearClick = () => {
-    appLogic.clickBear();
-    setPoints(appLogic.getPoints());
-  };
-  const handleUpgradeClick = (upgradeName) => {
-    if (appLogic.applyUpgrade(upgradeName)) {
-      setPoints(appLogic.getPoints());
-      setUpgrades([...appLogic.upgrades]);
-    }
-  }
 
   return (
     <>
@@ -34,17 +24,18 @@ function App() {
         <div id = "left">
         </div>
       <div id ="middle">
-        <button onClick={handleBearClick}>
+        <button onClick={() => appLogic.clickBear(setPoints)}>
           You have {points} Coder Points!
         </button>
-        
       </div>
         <div id = "right">
-          {upgrades.map((upgrade) => (
-          <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
-            {upgrade.name}
-          </button>
-        ))}
+            {upgrades
+              .filter((upgrade) => points >= (upgrade.getRequirement()))
+              .map((upgrade) => (
+                <button key={upgrade.name} onClick={() => appLogic.applyUpgrade(upgrade.name, setPoints, setUpgrades)}>
+                  {upgrade.name}, {upgrade.getCost()}
+                </button>
+              ))}
         </div>
     </div>
     </div>
