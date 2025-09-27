@@ -21,8 +21,14 @@ function App() {
   return (
     <>
     <div id = "yessy">
-      <h1>HackyClicker</h1>
+      <div id ="head">
+        <div>
+          <h1>HackyClicker</h1>
       <h2>You have {points} Coder Points!</h2>
+        </div>
+        
+      </div>
+      
       <div id = "container">
         <div id = "left">
           {towers
