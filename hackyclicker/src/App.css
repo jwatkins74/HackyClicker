@@ -13,6 +13,10 @@
 }
 
 #head {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
   background-image: url("/c.png");
   background-size: cover;
   /* scale to fill */
@@ -22,14 +26,21 @@
 
 #head>* {
   display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: cadetblue;
   width: fit-content;
+  flex-wrap: wrap;
 }
 
+#head>*>* {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+}
 
 button {
-  background-color: saddlebrown;
+  background-color: rebeccapurple;
 }
 
 #root {
@@ -65,10 +76,20 @@ h2 {
 
 }
 
+* {
+  user-select: none;
+  /* Standard syntax */
+}
+
 #container>* {
   border: 3px solid black;
   flex: 1;
   background-color: sienna;
+  background-image: url("/b.png");
+  background-size: contain;
+  /* scale to fill */
+  background-repeat: repeat-x;
+  background-position: center;
 }
 
 #middle {
@@ -90,7 +111,7 @@ h2 {
 
 #bear {
   -webkit-user-drag: none;
-  animation: SPIN 100s linear infinite;
+  animation: SPIN .1s linear infinite;
 
   background: saddlebrown;
   border: 10px solid black;
