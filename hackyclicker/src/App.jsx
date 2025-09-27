@@ -15,8 +15,8 @@ function App() {
   const [points, setPoints] = useState(appLogic.getPoints());
   const [upgrades, setUpgrades] = useState(appLogic.upgrades);
   const [towers, setTowers] = useState(appLogic.towers);
-
   const [flag1, setFlag1] = useState(false);
+  const [speed, setSpeed] = useState(100);
 
   return (
     <>
@@ -38,7 +38,7 @@ function App() {
         setFlag1(true)
         setTimeout(() => {setFlag1(false)}, 200)
         }}>
-          <img id='bear' draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
+          <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
         </button>
       </div>
         <div id = "right">

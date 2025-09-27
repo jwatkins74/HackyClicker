@@ -12,6 +12,10 @@
   }
 }
 
+button {
+  background-color: tomato;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -52,7 +56,9 @@ h2 {
   align-items: center;
   justify-content: center;
   background-color: tomato;
+
 }
+
 
 #yessy {
   width: 100vw;
@@ -65,7 +71,9 @@ h2 {
 #bear {
   -webkit-user-drag: none;
   animation: SPIN 100s linear infinite;
-  background: transparent;
+  background: tomato;
+  border: 10px solid black;
+  border-radius: 100px;
 }
 
 .invert {
