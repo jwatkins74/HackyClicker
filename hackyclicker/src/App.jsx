@@ -7,7 +7,6 @@ import Logic from './Logic.jsx';
 
 
 function App() {
-  const [count, setCount] = useState(0)
   // Use useRef to persist Logic instance across renders
   const logicRef = useRef(null);
   if (!logicRef.current) {
