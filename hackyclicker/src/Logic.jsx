@@ -1,11 +1,9 @@
-import Upgrade from './Upgrade.jsx';
-import Tower from './Tower.jsx';
+import Progression from './Progression.jsx';
 class Logic {
     constructor() {
         this.points = 0;
         this.multiplier = 1;
-        this.upgrades = [new Upgrade("Upgrade1", 1, 20, 10), new Upgrade("Upgrade2", 1, 200, 100),];
-        this.towers = [new Tower("Tower1", 1, 20, 0), new Tower("Tower2", 5, 100, 10)];
+        this.progression = new Progression();
     }
 
     clickBear(setPoints) {
@@ -13,40 +11,36 @@ class Logic {
         setPoints(this.points);
     }
 
-    addUpgrade(upgrade) {
-        this.upgrades.push(upgrade);
-    }
-
     applyUpgrade(upgradeName, setPoints, setUpgrades) {
-        const idx = this.upgrades.findIndex(u => u.name === upgradeName);
-        if (idx !== -1) {
-            if (this.points < this.upgrades[idx].getCost()) {
+        const upgrade = this.progression.findUpgradeByName(upgradeName);
+        if (upgrade) {
+            if (this.points < upgrade.getCost()) {
                 return false;
             }
-            const currUpgrade = this.upgrades.splice(idx, 1)[0];
-            this.multiplier += currUpgrade.getMultVal();
-            this.points -= currUpgrade.getCost();
+            this.multiplier += upgrade.getMultVal();
+            this.points -= upgrade.getCost();
+            // Remove upgrade from progression
+            this.progression.upgrades = this.progression.upgrades.filter(u => u.name !== upgradeName);
             setPoints(this.getPoints());
-            setUpgrades([...this.upgrades]);
+            setUpgrades([...this.progression.getUpgrades()]);
             return true;
         }
         return false;
     }
 
-    addTower(towerName, setPoints, setTowers) {
-        const idx = this.towers.findIndex(t => t.name === towerName);
-        if (idx !== -1) {
-            if (this.points < this.towers[idx].getCost()) {
+    buyTower(towerName, setPoints, setTowers) {
+        const tower = this.progression.findTowerByName(towerName);
+        if (tower) {
+            if (this.points < tower.getCost()) {
                 return false;
             }
-            const currTower = this.towers[idx];
-            if (currTower.getAmount() === 0) {
-                this.applyTower(currTower, setPoints, setTowers);
+            if (tower.getAmount() === 0) {
+                this.applyTower(tower, setPoints, setTowers);
             }
-            this.points -= currTower.getCost();
-            currTower.buyTower();
+            this.points -= tower.getCost();
+            tower.addTower();
             setPoints(this.getPoints());
-            setTowers([...this.towers]);
+            setTowers([...this.progression.getTowers()]);
             return true;
         }
         return false;
@@ -55,7 +49,7 @@ class Logic {
         setInterval(() => {
             this.points += tower.getDPS();
             setPoints(this.getPoints());
-            setTowers([...this.towers]);
+            setTowers([...this.progression.getTowers()]);
         }, 1000);
     }
 

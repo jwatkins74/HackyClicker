@@ -13,8 +13,8 @@ function App() {
 
   // React state to trigger re-render on points change
   const [points, setPoints] = useState(appLogic.getPoints());
-  const [upgrades, setUpgrades] = useState(appLogic.upgrades);
-  const [towers, setTowers] = useState(appLogic.towers);
+  const [upgrades, setUpgrades] = useState(appLogic.progression.upgrades);
+  const [towers, setTowers] = useState(appLogic.progression.towers);
 
   const [flag1, setFlag1] = useState(false);
 
@@ -26,9 +26,9 @@ function App() {
       <div id = "container">
         <div id = "left">
           {towers
-              .filter((tower) => points >= (tower.getRequirement()))
+              .filter((tower) => points >= (tower.getViewCost()))
               .map((tower) => (
-                <button key={tower.name} onClick={() => appLogic.addTower(tower.name, setPoints, setTowers)}>
+                <button key={tower.name} onClick={() => appLogic.buyTower(tower.name, setPoints, setTowers)}>
                   {tower.name}, {tower.getCost()}, {tower.getAmount()}
                 </button>
               ))}
@@ -43,7 +43,7 @@ function App() {
       </div>
         <div id = "right">
             {upgrades
-              .filter((upgrade) => points >= (upgrade.getRequirement()))
+              .filter((upgrade) => points >= (upgrade.getViewCost()))
               .map((upgrade) => (
                 <button key={upgrade.name} onClick={() => appLogic.applyUpgrade(upgrade.name, setPoints, setUpgrades)}>
                   {upgrade.name}, {upgrade.getCost()}

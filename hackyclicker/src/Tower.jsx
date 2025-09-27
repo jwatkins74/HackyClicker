@@ -1,16 +1,16 @@
 class Tower {
-    constructor(name, DPS, cost, requirement) {
+    constructor(name, DPS, cost, viewCost) {
         this.name = name;
         this.amount = 0;
         this.DPS = DPS;
         this.cost = cost;
-        this.requirement = requirement;
+        this.viewCost = viewCost;
     }
 
-    buyTower() {
+    addTower() {
         this.amount += 1;
         //logarithmic cost increase (later)
-        this.cost *= 2;
+        this.cost += Math.round(Math.sqrt(this.cost));
     }
     
     getDPS() {
@@ -21,8 +21,8 @@ class Tower {
         return this.cost;
     }
 
-    getRequirement() {
-        return this.requirement;
+    getViewCost() {
+        return this.viewCost;
     }
 
     getAmount() {

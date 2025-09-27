@@ -1,9 +1,9 @@
 class Upgrade {
-    constructor(name, multValue, cost, requirement) {
+    constructor(name, multValue, cost, viewCost) {
         this.name = name;
         this.multValue = multValue;
         this.cost = cost;
-        this.requirement = requirement;
+        this.viewCost = viewCost;
     }
     
     getMultVal() {
@@ -14,8 +14,8 @@ class Upgrade {
         return this.cost;
     }
 
-    getRequirement() {
-        return this.requirement;
+    getViewCost() {
+        return this.viewCost;
     }
 
 }
