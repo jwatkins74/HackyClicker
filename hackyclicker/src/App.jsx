@@ -6,6 +6,7 @@ function App() {
 
   return (
     <>
+    <div id = "yessy">
       <h1>HackyClicker</h1>
       <div id = "container">
         <div id = "left">
@@ -17,7 +18,7 @@ function App() {
         </div>
         <div id = "right"></div>
       </div>
-      
+    </div>
     </>
   )
 }
