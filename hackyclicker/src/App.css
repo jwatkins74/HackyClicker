@@ -30,7 +30,14 @@ h2 {
 #container>* {
   border: 3px solid black;
   flex: 1;
-  background-color: aqua;
+  background-color: forestgreen;
+}
+
+#middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tomato;
 }
 
 #yessy {
