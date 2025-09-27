@@ -10,7 +10,7 @@ class Tower {
     addTower() {
         this.amount += 1;
         //logarithmic cost increase (later)
-        this.cost += Math.round(Math.sqrt(this.cost));
+        this.cost += Math.round(this.cost/7);
     }
     
     getDPS() {
