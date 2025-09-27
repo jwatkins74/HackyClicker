@@ -1,3 +1,17 @@
+@keyframes SPIN {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -30,7 +44,14 @@ h2 {
 #container>* {
   border: 3px solid black;
   flex: 1;
-  background-color: aqua;
+  background-color: forestgreen;
+}
+
+#middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tomato;
 }
 
 #yessy {
@@ -43,8 +64,10 @@ h2 {
 
 #bear {
   -webkit-user-drag: none;
+  animation: SPIN 100s linear infinite;
+  background: transparent;
 }
 
-#bear:click {
+.invert {
   filter: invert(1);
 }
