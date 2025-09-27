@@ -1,9 +1,12 @@
+
 import { useState, useRef } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import Logic from './Logic.jsx';
 
+import { useState } from 'react'
+import './App.css'
 
 function App() {
   // Use useRef to persist Logic instance across renders
@@ -32,26 +35,29 @@ function App() {
     <>
     <div id = "yessy">
       <h1>HackyClicker</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       <div id = "container">
         <div id = "left">
         </div>
         <div id = "middle">
-          <button onClick={handleBearClick}>
-            You have {points} Coder Points!
+          <button id ="clickButton" onClick={() => setCount((count) => count + 1)}>
+            count is {count}
           </button>
-          {upgrades.map((upgrade) => (
-            <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
-              {upgrade.name}
-            </button>
-          ))}
         </div>
         <div id = "right"></div>
+      <div className="card">
+        <button onClick={handleBearClick}>
+          You have {points} Coder Points!
+        </button>
+        {upgrades.map((upgrade) => (
+          <button key={upgrade.name} onClick={() => handleUpgradeClick(upgrade.name)}>
+            {upgrade.name}
+          </button>
+        ))}
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
-      </div>
+    </div>
     </div>
     </>
   );
