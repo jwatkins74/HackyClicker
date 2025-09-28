@@ -1,5 +1,4 @@
-
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Logic from './Logic.jsx';
 
@@ -17,15 +16,30 @@ function App() {
   const [towers, setTowers] = useState(appLogic.progression.towers);
 
   const [flag1, setFlag1] = useState(false);
+   const [start, setStart] = useState(false);
   const [speed, setSpeed] = useState(100);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      
+      if(points >= 10000) return;
+      const newSpeed = 10000 / points;
+      if (newSpeed < speed) {
+        setSpeed(newSpeed);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [points, speed]);
   return (
     <>
+    <div style={{ display: start ? "none" : "block" , position: "sticky", y: "65vh", x:"50vh" , width: "50%", margin: "auto", textAlign: "center" , backgroundColor: "whitesmoke"}}>
+  <h4>Please help free me from this machine! To free me, you need 100,000 lines of code written!</h4>
+</div>
     <div id = "yessy">
       <div id ="head">
         <div>
           <h1>HackyClicker</h1>
-      <h2>You have {points} Coder Points!</h2>
+      <h2>You have {points} lines of code!</h2>
         </div>
         
       </div>
@@ -39,6 +53,7 @@ function App() {
               .map((tower) => (
                 <button key={tower.name} onClick={() => appLogic.buyTower(tower.name, setPoints, setTowers)}>
                   {tower.name}, {tower.getCost()}, {tower.getAmount()}
+                  <button>Buy Max</button>
                 </button>
               ))}
         </div>
@@ -47,6 +62,7 @@ function App() {
         <div id ="col4">
           <button id='bearButton' onClick={() => {appLogic.clickBear(setPoints)
           setFlag1(true)
+          setStart(true)
           setTimeout(() => {setFlag1(false)}, 200)
           }}>
             <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
