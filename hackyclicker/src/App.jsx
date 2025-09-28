@@ -32,9 +32,6 @@ function App() {
   }, [points, speed]);
   return (
     <>
-    <div style={{ display: start ? "none" : "block" , position: "sticky", y: "65vh", x:"50vh" , width: "50%", margin: "auto", textAlign: "center" , backgroundColor: "whitesmoke"}}>
-  <h4>Please help free me from this machine! To free me, you need 100,000 lines of code written!</h4>
-</div>
     <div id = "yessy">
       <div id ="head">
         <div>
@@ -59,13 +56,18 @@ function App() {
         </div>
         <div id ="col3">
           </div>
-        <div id ="col4">
+        <div id="col4">
+          {!start && (
+            <div className="intro-message">
+              <h4>Please help free me from this machine! To free me, you need 100,000 lines of code written!</h4>
+            </div>
+          )}
           <button id='bearButton' onClick={() => {appLogic.clickBear(setPoints)
-          setFlag1(true)
-          setStart(true)
-          setTimeout(() => {setFlag1(false)}, 200)
+            setFlag1(true)
+            setStart(true)
+            setTimeout(() => {setFlag1(false)}, 200)
           }}>
-            <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
+            <img id='bear' style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
           </button>
         </div>
         <div id ="col5">
