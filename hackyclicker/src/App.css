@@ -18,11 +18,10 @@
   justify-content: center;
   width: 100%;
 
-  background-image: url("/c.png");
-  background-size: cover;
-  /* scale to fill */
+  background-image: url("/museumTopNew2.png");
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
 }
 
 #head>* {
@@ -32,13 +31,8 @@
   background-color: cadetblue;
   width: fit-content;
   flex-wrap: wrap;
-}
-
-#right, #left {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
+  border-radius: 20px; /* or 50% for a pill/circle */
+  margin: 16px;
 }
 
 #head>*>* {
@@ -90,22 +84,52 @@ h2 {
 }
 
 #container>* {
-  border: 3px solid black;
   flex: 1;
-  background-color: sienna;
-  background-image: url("/b.png");
+  background-color: lightsteelblue;
   background-size: contain;
   /* scale to fill */
   background-repeat: repeat-x;
   background-position: center;
 }
 
-#middle {
+#col1, #col7 {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/column.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+#col3, #col5 {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/column.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: mintcream;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+
+
+#col2, #col6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: mintcream;
+}
+
+#col4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: saddlebrown;
-
+  background-color: mintcream;
 }
 
 
@@ -129,3 +153,11 @@ h2 {
 .invert {
   filter: invert(1);
 }
+
+#col1 { flex: 1; }
+#col2 { flex: 3; }
+#col3 { flex: 1; }
+#col4 { flex: 2; }
+#col5 { flex: 1; }
+#col6 { flex: 3; }
+#col7 { flex: 1; }

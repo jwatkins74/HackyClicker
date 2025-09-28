@@ -31,7 +31,9 @@ function App() {
       </div>
       
       <div id = "container">
-        <div id = "left">
+        <div id ="col1">
+          </div>
+        <div id = "col2">
           {towers
               .filter((tower) => points >= (tower.getViewCost()))
               .map((tower) => (
@@ -40,15 +42,19 @@ function App() {
                 </button>
               ))}
         </div>
-      <div id ="middle">
-        <button id='bearButton' onClick={() => {appLogic.clickBear(setPoints)
-        setFlag1(true)
-        setTimeout(() => {setFlag1(false)}, 200)
-        }}>
-          <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
-        </button>
-      </div>
-        <div id = "right">
+        <div id ="col3">
+          </div>
+        <div id ="col4">
+          <button id='bearButton' onClick={() => {appLogic.clickBear(setPoints)
+          setFlag1(true)
+          setTimeout(() => {setFlag1(false)}, 200)
+          }}>
+            <img id='bear'style={{ animationDuration: `${ speed}s` }} draggable = "false" src = "/a.webp" className={flag1 ? "invert": ""}></img>
+          </button>
+        </div>
+        <div id ="col5">
+        </div>
+        <div id = "col6">
             {upgrades
               .filter((upgrade) => points >= (upgrade.getViewCost()))
               .map((upgrade) => (
@@ -57,7 +63,9 @@ function App() {
                 </button>
               ))}
         </div>
-    </div>
+        <div id ="col7">
+          </div>
+      </div>
     </div>
     </>
   );
