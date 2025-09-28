@@ -7,12 +7,14 @@
   margin-bottom: 0.2em;
   letter-spacing: 0.01em;
 }
+
 .tower-buy-row {
   display: flex;
   flex-direction: row;
   gap: 0.5em;
   margin-top: 0.3em;
 }
+
 .tower-row {
   display: flex;
   justify-content: space-between;
@@ -22,6 +24,7 @@
   background: rgba(255, 208, 208, 0.404);
   border-radius: 8px;
 }
+
 .tower-meta {
   display: flex;
   flex-direction: column;
@@ -30,6 +33,7 @@
   font-weight: bold;
   margin-left: 0.2em;
 }
+
 .tower-amount {
   display: flex;
   flex-direction: column;
@@ -37,22 +41,26 @@
   align-items: flex-end;
   margin-right: 0.5em;
 }
+
 .tower-cost {
   font-size: 0.95em;
   color: #ffffff;
   margin-top: 0.1em;
   margin-left: 0.5em;
 }
+
 .tower-buymax {
   margin-top: 0.3em;
   font-size: 0.9em;
   padding: 0.2em 0.7em;
 }
+
 .tower-buy1 {
   margin-top: 0.3em;
   font-size: 0.9em;
   padding: 0.2em 0.7em;
 }
+
 .intro-message {
   position: sticky;
   text-align: center;
@@ -73,6 +81,20 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes SPIN1 {
+  0% {
+    transform: rotate(0deg) scale(1) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(0deg) scale(0) translateY(25vh);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1) translateY(50vh);
   }
 }
 
@@ -125,12 +147,21 @@ button {
   user-select: none;
 }
 
+.bear1 {
+  user-select: none;
+}
+
 .bearButton:hover {
   border-color: #8B4513;
 
 }
 
 .bear:hover {
+  border-color: royalblue;
+
+}
+
+.bear1:hover {
   border-color: royalblue;
 
 }
@@ -252,6 +283,15 @@ h2 {
 .bear {
   -webkit-user-drag: none;
   animation: SPIN 111111111111111s linear infinite;
+
+  background: saddlebrown;
+  border: 10px solid black;
+  border-radius: 100px;
+}
+
+.bear1 {
+  -webkit-user-drag: none;
+  animation: SPIN1 111111111111111s linear infinite;
 
   background: saddlebrown;
   border: 10px solid black;
