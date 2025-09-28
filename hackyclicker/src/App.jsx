@@ -44,19 +44,41 @@ function App() {
       <div id = "container">
         <div id ="col1">
           </div>
-        <div id = "col2">
+        <div id="col2">
           {towers
-              .filter((tower) => points >= (tower.getViewCost()))
-              .map((tower) => (
-                <button key={tower.name} onClick={() => appLogic.buyTower(tower.name, setPoints, setTowers)}>
-                  {tower.name}, {tower.getCost()}, {tower.getAmount()}
-                  <button onClick={() => {
-                    let boolflag = true
-                    while(boolflag){
-                      boolflag = appLogic.buyTower(tower.name, setPoints, setTowers) }
-                    }}>Buy Max</button>
-                </button>
-              ))}
+            .filter((tower) => points >= (tower.getViewCost()))
+            .map((tower) => (
+              <div className="tower-row" key={tower.name}>
+                <div className="tower-meta">
+                  <span>{tower.name}</span>
+                  <span className="tower-cost">Cost: {tower.getCost()} lines of code</span>
+                </div>
+                <div className="tower-amount">
+                  <span>{tower.getAmount()}</span>
+                  <div className="tower-buy-row">
+                    <button
+                      className="tower-buy1"
+                      onClick={() => {
+                        appLogic.buyTower(tower.name, setPoints, setTowers);
+                      }}
+                    >
+                      Buy 1
+                    </button>
+                    <button
+                      className="tower-buymax"
+                      onClick={() => {
+                        let boolflag = true;
+                        while (boolflag) {
+                          boolflag = appLogic.buyTower(tower.name, setPoints, setTowers);
+                        }
+                      }}
+                    >
+                      Buy Max
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
         <div id ="col3">
           </div>
@@ -76,14 +98,21 @@ function App() {
         </div>
         <div id ="col5">
         </div>
-        <div id = "col6">
-            {upgrades
-              .filter((upgrade) => points >= (upgrade.getViewCost()))
-              .map((upgrade) => (
-                <button key={upgrade.name} onClick={() => appLogic.applyUpgrade(upgrade.name, setPoints, setUpgrades)}>
-                  {upgrade.name}, {upgrade.getCost()}
-                </button>
-              ))}
+        <div id="col6">
+          {upgrades
+            .filter((upgrade) => points >= (upgrade.getViewCost()))
+            .map((upgrade) => (
+              <button
+                key={upgrade.name}
+                onClick={() => appLogic.applyUpgrade(upgrade.name, setPoints, setUpgrades)}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '0.7em', padding: '0.7em 1em' }}
+              >
+                <span style={{ fontWeight: 'bold', fontSize: '1.1em' }}>{upgrade.name}</span>
+                <span className="upgrade-desc">
+                  If you want to learn <b>{upgrade.name}</b>, you need to write <span style={{ color: '#7b3f00', fontWeight: 600 }}>{upgrade.getCost()}</span> lines of code!
+                </span>
+              </button>
+            ))}
         </div>
         <div id ="col7">
           </div>
