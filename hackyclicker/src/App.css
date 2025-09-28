@@ -61,6 +61,7 @@
   padding: 1em 0.5em;
   border-radius: 12px;
 }
+
 @keyframes SPIN {
   0% {
     transform: rotate(0deg);
@@ -86,10 +87,16 @@
   background-position: center top;
 }
 
+#hires,
+#upgrades {
+  color: honeydew;
+}
+
 #head>* {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   background-color: cadetblue;
   width: fit-content;
   flex-wrap: wrap;
@@ -108,22 +115,22 @@ button {
   background-color: rgb(96, 159, 198);
 }
 
-#bearButton {
+.bearButton {
   background-color: rgb(52, 25, 7);
   user-select: none;
   outline: none;
 }
 
-#bear {
+.bear {
   user-select: none;
 }
 
-#bearButton:hover {
+.bearButton:hover {
   border-color: #8B4513;
 
 }
 
-#bear:hover {
+.bear:hover {
   border-color: royalblue;
 
 }
@@ -179,7 +186,7 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  background-image: 
+  background-image:
     url("/column.png"),
     linear-gradient(to right, lightsteelblue 50%, rgb(52, 25, 7) 50%);
   background-size: cover, cover;
@@ -191,8 +198,9 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  justify-items: center;
   align-items: stretch;
-  background-image: 
+  background-image:
     url("/column.png"),
     linear-gradient(to left, lightsteelblue 50%, rgb(52, 25, 7) 50%);
   background-size: cover, cover;
@@ -241,7 +249,7 @@ h2 {
   flex-direction: column;
 }
 
-#bear {
+.bear {
   -webkit-user-drag: none;
   animation: SPIN 111111111111111s linear infinite;
 
