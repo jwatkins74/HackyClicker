@@ -1,5 +1,5 @@
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Logic from './Logic.jsx';
 
@@ -19,6 +19,15 @@ function App() {
   const [flag1, setFlag1] = useState(false);
   const [speed, setSpeed] = useState(100);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newSpeed = 1000 / points;
+      if (newSpeed < speed) {
+        setSpeed(newSpeed);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [points, speed]);
   return (
     <>
     <div id = "yessy">

@@ -40,6 +40,11 @@ button:hover {
   border: 5px solid #646cff;
 }
 
+#bearButton:hover {
+  border-color: #8B4513;
+  border: 5px solid #8B4513;
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
