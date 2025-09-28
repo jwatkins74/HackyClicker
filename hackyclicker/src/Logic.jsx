@@ -53,6 +53,14 @@ class Logic {
         }, 1000);
     }
 
+    chatGPTIncrease(setTowers) {
+        setInterval(() => {
+            let chatGPT = this.progression.findTowerByName("ChatGPT");
+            chatGPT.setCost(Math.round(chatGPT.getCost()+Math.log2(chatGPT.getCost())));
+            setTowers([...this.progression.getTowers()]);
+        }, 100);
+    }
+
     getPoints() {
         return this.points;
     }

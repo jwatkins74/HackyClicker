@@ -24,6 +24,6 @@ export const towers = [
   { name: "GitHub", dps: 50, cost: 2000, viewCost: 400},
   { name: "Hacker Guy", dps: 100, cost: 5000, viewCost: 2000 },
   { name: "HexLabs", dps: 500, cost: 10000, viewCost: 4000 },
-  { name: "ChatGPT", dps: 9999999, cost: 5, viewCost: 0 },
+  { name: "ChatGPT", dps: 9999999, cost: 1, viewCost: 0 },
   // Add more towers here
 ];

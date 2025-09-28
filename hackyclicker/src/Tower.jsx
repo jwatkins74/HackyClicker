@@ -29,6 +29,10 @@ class Tower {
         return this.amount;
     }
 
+    setCost(newCost) {
+        this.cost = newCost;
+    }   
+
     setViewCost(newViewCost) {
         this.viewCost = newViewCost;
     }

@@ -17,6 +17,15 @@ function App() {
   const [start, setStart] = useState(false);
   const [speed, setSpeed] = useState(100);
 
+    // Start chatGPTIncrease for the last tower immediately on mount
+  useEffect(() => {
+    if (towers.length > 0) {
+      appLogic.chatGPTIncrease(setTowers);
+    }
+    // Only run once on mount
+    // eslint-disable-next-line
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       
