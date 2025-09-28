@@ -19,8 +19,8 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-        finalTower = false;
-        finalUpgrade = false;
+        let finalTower = false;
+        let finalUpgrade = false;
 
         //Ending conditions
         if (towers[towers.length-1].getAmount() > 0) {
