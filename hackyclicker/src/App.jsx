@@ -53,7 +53,7 @@ function App() {
           setfinished(true);
         }
 
-    }, 1000);
+    }, 100);
     return () => clearInterval(interval);
   }, [towers, upgrades]);
   if (finished) {
