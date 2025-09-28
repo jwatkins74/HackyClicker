@@ -19,6 +19,17 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      
+      if(points >= 10000) return;
+      const newSpeed = 10000 / points;
+      if (newSpeed < speed) {
+        setSpeed(newSpeed);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [points, speed]);
+  useEffect(() => {
+    const interval = setInterval(() => {
         let finalTower = false;
         let finalUpgrade = false;
 
@@ -29,18 +40,13 @@ function App() {
         if (upgrades.length === 0) {
           finalUpgrade = true;
         }
-        if (finalTower === false && finalUpgrade === false && points >= 100000) {
+        if (finalTower === true && finalUpgrade === true) {
           setfinished(true);
         }
-      
-      if(points >= 10000) return;
-      const newSpeed = 10000 / points;
-      if (newSpeed < speed) {
-        setSpeed(newSpeed);
-      }
+
     }, 1000);
     return () => clearInterval(interval);
-  }, [points, speed]);
+  }, [towers, upgrades]);
   if (finished) {
     return  (
       <>
