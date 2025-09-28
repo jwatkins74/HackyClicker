@@ -137,6 +137,7 @@
   border-radius: 20px;
   /* or 50% for a pill/circle */
   margin: 16px;
+  padding: 10px;
 }
 
 #head>*>* {
