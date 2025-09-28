@@ -217,7 +217,7 @@ h2 {
 
 #container>* {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 185px);
   flex: 1;
   background-color: lightsteelblue;
   background-size: contain;
