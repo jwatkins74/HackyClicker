@@ -4,6 +4,18 @@
   transition: color 0.3s;
 }
 
+button:focus {
+  outline: none;
+}
+
+img {
+  user-select: none;
+}
+
+button {
+  user-select: none;
+}
+
 .upgrades-completed {
   color: #1dbf1d !important;
   font-weight: bold;
@@ -212,9 +224,6 @@ h2 {
 
 }
 
-* {
-  user-select: none;
-}
 
 #container>* {
   width: 100%;

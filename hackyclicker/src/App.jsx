@@ -28,21 +28,16 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      
-      if(points >= 10000) return;
-      const newSpeed = 10000 / points;
-      if (newSpeed < speed) {
-        setSpeed(newSpeed);
-      }
+    if(points >= 10000) return;
+
+    const newSpeed = 1 / ((points + 1) / 1000);
+    if (newSpeed  < speed) {
+      setSpeed(newSpeed);
+    }
     }, 1000);
     return () => clearInterval(interval);
   }, [points, speed]);
-  useEffect(() => {
-  if (points > 0) {
-    const newSpeed = Math.max(0.1, 10000 / points); // Avoid dividing by zero
-    setSpeed(newSpeed);
-  }
-}, [points]);
+  
   useEffect(() => {
     const interval = setInterval(() => {
         let finalTower = false;
