@@ -53,7 +53,11 @@ function App() {
               .map((tower) => (
                 <button key={tower.name} onClick={() => appLogic.buyTower(tower.name, setPoints, setTowers)}>
                   {tower.name}, {tower.getCost()}, {tower.getAmount()}
-                  <button>Buy Max</button>
+                  <button onClick={() => {
+                    let boolflag = true
+                    while(boolflag){
+                      boolflag = appLogic.buyTower(tower.name, setPoints, setTowers) }
+                    }}>Buy Max</button>
                 </button>
               ))}
         </div>
