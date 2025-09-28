@@ -42,11 +42,81 @@ function App() {
     return () => clearInterval(interval);
   }, [points, speed]);
   if (finished) {
-    return (<h1>Congratulations! You have freed me from this machine! Thank you so much!</h1>);
+    return  (
+      <>
+      <h1>Congratulations! You have freed me from this machine! Thank you so much!</h1>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${10 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${2 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${1 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${0.5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${2 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${1 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${0.5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${2 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${1 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      <img onClick={() => {
+            setFlag1(true)
+            setTimeout(() => {setFlag1(false)}, 200)
+          }} style={{ animationDuration:  `${0.5 * Math.random()}s`}} draggable = "false" src = "/a.webp" className={`bear1 ${flag1 ? "invert" : ""}`}>
+      </img>
+      
+          
+      </>
+    );
   }
   return (
     <>
-    <audio src="/baby.wav"></audio>
     <div id = "yessy">
       <div id ="head">
         <div>
