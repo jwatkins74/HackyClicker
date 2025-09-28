@@ -205,7 +205,7 @@ function App() {
         <div id="col4">
           {!start && (
             <div className="intro-message">
-              <h4>Please help free me from this machine! To free me, you need 100,000 lines of code written! Upgrade you abilities and hire some help.</h4>
+              <h4>Please help free me from this machine! To free me, you need 100,000 lines of code written! Upgrade your abilities to the maximum and hire the most famous Computer Scientists around!.</h4>
             </div>
           )}
           <button className='bearButton' onClick={() => {appLogic.clickBear(setPoints)
