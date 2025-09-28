@@ -55,6 +55,16 @@ button {
   background-color: saddlebrown;
 }
 
+#bearButton:hover {
+  border-color: #8B4513;
+
+}
+
+#bear:hover {
+  border-color: royalblue;
+
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -90,7 +100,6 @@ h2 {
 
 * {
   user-select: none;
-  /* Standard syntax */
 }
 
 #container>* {
