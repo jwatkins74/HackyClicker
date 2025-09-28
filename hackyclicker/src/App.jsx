@@ -38,6 +38,12 @@ function App() {
     return () => clearInterval(interval);
   }, [points, speed]);
   useEffect(() => {
+  if (points > 0) {
+    const newSpeed = Math.max(0.1, 10000 / points); // Avoid dividing by zero
+    setSpeed(newSpeed);
+  }
+}, [points]);
+  useEffect(() => {
     const interval = setInterval(() => {
         let finalTower = false;
         let finalUpgrade = false;
