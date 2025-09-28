@@ -218,7 +218,7 @@ function App() {
                 appLogic.points *= 2;
               } else { appLogic.points *= 0; }
               setPoints(appLogic.getPoints());
-            }}> GAMMMMBLLEEE (Double or Nothing)</button>
+            }}> GAMMMMBLLEEE <div id = "div1"></div> (Double or Nothing)</button>
           </div>
         </div>
         <div id ="col5">
