@@ -14,11 +14,24 @@ function App() {
   const [towers, setTowers] = useState(appLogic.progression.towers);
   const [finished, setfinished] = useState(false);
   const [flag1, setFlag1] = useState(false);
-   const [start, setStart] = useState(false);
+  const [start, setStart] = useState(false);
   const [speed, setSpeed] = useState(100);
 
   useEffect(() => {
     const interval = setInterval(() => {
+        finalTower = false;
+        finalUpgrade = false;
+
+        //Ending conditions
+        if (towers[towers.length-1].getAmount() > 0) {
+          finalTower = true;
+        }
+        if (upgrades.length === 0) {
+          finalUpgrade = true;
+        }
+        if (finalTower === false && finalUpgrade === false && points >= 100000) {
+          setfinished(true);
+        }
       
       if(points >= 10000) return;
       const newSpeed = 10000 / points;
@@ -47,9 +60,22 @@ function App() {
         <div id ="col1">
           </div>
         <div id = "col2">
-          <h4 id = "hires"> Hires: </h4>
+          <h4
+            id="hires"
+            className={towers.length > 0 && towers[towers.length-1].getAmount() > 0 ? "hires-completed" : ""}
+          >
+            {towers.length > 0 && towers[towers.length-1].getAmount() > 0 ? "Hires: Completed!" : "Hires:"}
+          </h4>
           {towers
-            .filter((tower) => points >= (tower.getViewCost()))
+            .filter((tower) => {
+              if (points >= tower.getViewCost()) {
+                if (tower.getViewCost() !== 0) {
+                  tower.setViewCost(0); // Make it always visible after first reveal
+                }
+                return true;
+              }
+              return false;
+            })
             .map((tower) => (
               <div className="tower-row" key={tower.name}>
                 <div className="tower-meta">
@@ -112,9 +138,22 @@ function App() {
         <div id ="col5">
         </div>
         <div id="col6">
-          <h4 id = "upgrades"> Upgrades: </h4>
+          <h4
+            id="upgrades"
+            className={upgrades.length === 0 ? "upgrades-completed" : ""}
+          >
+            {upgrades.length === 0 ? "Upgrades: Completed!" : "Upgrades:"}
+          </h4>
           {upgrades
-            .filter((upgrade) => points >= (upgrade.getViewCost()))
+            .filter((upgrade) => {
+              if (points >= upgrade.getViewCost()) {
+                if (upgrade.getViewCost() !== 0) {
+                  upgrade.setViewCost(0); // Make it always visible after first reveal
+                }
+                return true;
+              }
+              return false;
+            })
             .map((upgrade) => (
               <button
                 key={upgrade.name}

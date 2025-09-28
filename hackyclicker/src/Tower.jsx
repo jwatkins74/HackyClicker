@@ -29,6 +29,10 @@ class Tower {
         return this.amount;
     }
 
+    setViewCost(newViewCost) {
+        this.viewCost = newViewCost;
+    }
+
 }
 
 export default Tower;

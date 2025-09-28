@@ -1,3 +1,13 @@
+.hires-completed {
+  color: #1dbf1d !important;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.upgrades-completed {
+  color: #1dbf1d !important;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 .upgrade-desc {
   display: block;
   font-size: 0.98em;

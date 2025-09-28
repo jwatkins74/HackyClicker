@@ -18,6 +18,10 @@ class Upgrade {
         return this.viewCost;
     }
 
+    setViewCost(newViewCost) {
+        this.viewCost = newViewCost;
+    }
+
 }
 
 export default Upgrade;
